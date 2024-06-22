@@ -123,7 +123,7 @@ const UserProfileForm = ({ currentUser, onSave, isLoading }: Props) => {
             )}
           />
         </div>
-        {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
+        {isLoading ? <LoadingButton /> : <Button type="submit" className="w-full md:w-fit">Submit</Button>}
       </form>
     </Form>
   );

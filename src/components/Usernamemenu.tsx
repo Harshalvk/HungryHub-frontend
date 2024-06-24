@@ -16,10 +16,18 @@ const Usernamemenu = () => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center px-3 gap-1">
-          <img src={user?.picture} alt="user-profile-image" className="h-8 w-8 rounded-full"/>
+          <img
+            src={user?.picture}
+            alt="user-profile-image"
+            className="h-8 w-8 rounded-full"
+          />
           {user?.name}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
+          <DropdownMenuItem>
+            <Link to="/manage-restaurant">Manage Restaurant</Link>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Link to="/user-profile">User Profile</Link>
           </DropdownMenuItem>

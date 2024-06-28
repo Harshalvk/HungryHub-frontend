@@ -19,6 +19,7 @@ const MenuSection = () => {
           Create your menu and give each item a name and a price
         </FormDescription>
       </div>
+
       <FormField
         control={control}
         name="menuItem"
@@ -28,11 +29,13 @@ const MenuSection = () => {
               <MenuItemInput
                 index={index}
                 removeMenuItem={() => remove(index)}
+                key={index}
               />
             ))}
           </FormItem>
         )}
       />
+      
       <Button type="button" onClick={() => append({ name: "", price: "" })}>
         Add Menu Item
       </Button>

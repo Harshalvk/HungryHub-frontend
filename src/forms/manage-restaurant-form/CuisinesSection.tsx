@@ -10,6 +10,7 @@ import cuisineList from '@/config/restaurant-options-config'
 
 const CuisinesSection = () => {
   const { control } = useFormContext();
+
   return (
     <div className="space-y-2">
       <div>
@@ -18,14 +19,15 @@ const CuisinesSection = () => {
           Select the cuisines that your restaurant serves.
         </FormDescription>
       </div>
+      
       <FormField
         control={control}
         name="cuisines"
         render={({ field }) => (
           <FormItem>
             <div className="grid md:grid-cols-5 gap-1">
-              {cuisineList.map((cuisineItem) => (
-                <CuisineCheckbox cuisine={cuisineItem} field={field} />
+              {cuisineList.map((cuisineItem, index) => (
+                <CuisineCheckbox cuisine={cuisineItem} field={field} key={index} />
               ))}
             </div>
             <FormMessage />

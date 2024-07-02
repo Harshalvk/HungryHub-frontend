@@ -2,13 +2,14 @@ import Header from "@/components/Header";
 
 type Props = {
   children: React.ReactNode;
+  style?: boolean;
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, style = true }: Props) => {
   return (
     <div className="">
       <Header />
-      <div className="max-w-7xl mx-auto py-10 ">{children}</div>
+      <div className={style ? `max-w-7xl mx-auto py-10` : ''}>{children}</div>
     </div>
   );
 };

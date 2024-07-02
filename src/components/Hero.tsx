@@ -1,14 +1,15 @@
-//
 import banana from "../assets/banana.svg";
 import apple from "../assets/apple.svg";
 import heroImages from "../assets/hero-section-food-images.svg";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className="relative overflow-hidden"
+    >
       <div className="md:mt-16 max-w-7xl mx-auto flex p-7">
-        <div className="max-w-screen-md">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-medium leading-relaxed">
+        <div className="max-w-3xl">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-medium ">
             Preminum <span className="text-orange-400">quality</span>
             <br />
             Food for your{" "}
@@ -27,10 +28,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
       <img
         src={heroImages}
         alt="hero food images"
-        className="hidden xl:block h-96 absolute top-14 -right-28"
+        className="hidden xl:block h-96 w-auto absolute top-14 -right-28"
       />
     </div>
   );

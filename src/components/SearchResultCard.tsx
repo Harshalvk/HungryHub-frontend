@@ -8,12 +8,11 @@ type Props = {
 };
 
 const SearchResultCard = ({ restaurant }: Props) => {
-  console.log(restaurant);
   
   return (
     <Link
       to={`/detail/${restaurant._id}`}
-      className="grid lg:grid-cols-[2fr_3fr] gap-2 group mb-3"
+      className="grid lg:grid-cols-[2fr_3fr] gap-4 group mb-3"
     >
       <AspectRatio ratio={16 / 6}>
         <img

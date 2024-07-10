@@ -5,6 +5,7 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Store } from "lucide-react";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   searchQuery: z.string({
@@ -18,12 +19,20 @@ type Props = {
   onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
   onReset?: () => void;
+  searchQuery: string;
 };
 
-const SearchBar = ({ onSubmit, placeHolder, onReset }: Props) => {
+const SearchBar = ({ onSubmit, placeHolder, onReset, searchQuery }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      searchQuery,
+    },
   });
+
+  useEffect(() => {
+    form.reset({ searchQuery });
+  }, [form, searchQuery]);
 
   const handleReset = () => {
     form.reset({
@@ -36,7 +45,7 @@ const SearchBar = ({ onSubmit, placeHolder, onReset }: Props) => {
   };
 
   return (
-    <div className="flex-row md:w-4/6 md:flex items-center ">
+    <div className="flex-row md:w-4/6 md:flex items-center">
       <Form {...form}>
         <div className="h-full flex gap-2 mb-2 md:m-0 text-white justify-center items-center md:mr-2">
           <h1 className="text-nowrap font-bold">Search City</h1>
@@ -61,16 +70,13 @@ const SearchBar = ({ onSubmit, placeHolder, onReset }: Props) => {
               </FormItem>
             )}
           />
-
-          {form.formState.isDirty && (
-            <Button
-              onClick={handleReset}
-              type="button"
-              className="w-full md:w-fit"
-            >
-              Clear
-            </Button>
-          )}
+          <Button
+            onClick={handleReset}
+            type="button"
+            className="w-full md:w-fit"
+          >
+            Reset
+          </Button>
           <Button type="submit" className="w-full md:w-fit">
             Search
           </Button>

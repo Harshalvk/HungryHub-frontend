@@ -12,12 +12,11 @@ export const useSearchRestaurants = (
     const params = new URLSearchParams();
     params.set("searchQuery", searchState.searchQuery);
     params.set("page", searchState.page.toString());
+    params.set("selectedCuisines", searchState.selectedCuisines.join(","));
 
     const response = await fetch(
       `${API_BASE_URL}/api/restaurant/search/${city}?${params.toString()}`
     );
-
-    console.log("response you want to print", response);
 
     if (!response.ok) {
       throw new Error("Failed to get restaurant");

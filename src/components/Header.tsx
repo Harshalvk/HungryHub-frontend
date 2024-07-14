@@ -12,12 +12,19 @@ const Header = () => {
       <div className="flex items-center gap-2">
         <img src={logo} alt="logo" />
         <Link to="/">
-          <h1 className="text-2xl font-Poppins font-semibold cursor-pointer">HungryHub</h1>
+          <h1 className="text-2xl font-Poppins font-semibold cursor-pointer">
+            HungryHub
+          </h1>
         </Link>
       </div>
       <div className="hidden md:flex items-center gap-2">
         {isAuthenticated ? (
-          <Usernamemenu />
+          <>
+            <Link to={"/order-status"} className="font-bold">
+              Order Status
+            </Link>
+            <Usernamemenu />
+          </>
         ) : (
           <Button className="bg-[#202020]" onClick={() => loginWithRedirect()}>
             LogIn

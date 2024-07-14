@@ -6,6 +6,12 @@ const MobileNavLinks = () => {
   const { logout } = useAuth0();
   return (
     <>
+      <Link to="/order-status" className="flex items-center bg-white">
+        Order Status
+      </Link>
+      <Link to="/manage-restaurant" className="flex items-center bg-white">
+        My Restaurant
+      </Link>
       <Link to="/user-profile" className="flex items-center bg-white">
         User Profile
       </Link>

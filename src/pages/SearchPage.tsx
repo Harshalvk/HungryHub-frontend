@@ -69,12 +69,12 @@ const SearchPage = () => {
     }));
   };
 
-  if (isLoading) {
-    <LoadingSpinner />;
+  if (isLoading || !results?.data || !city) {
+    return <LoadingSpinner />;
   }
 
   if (!results?.data || !city) {
-    return <span>No results found</span>;
+    <span>No results found</span>;
   }
 
   return (

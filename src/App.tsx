@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import TownSearch from "./components/TownSearch";
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Hero/>
       <TownSearch/>
+      <Footer/>
     </>
   );
 }
